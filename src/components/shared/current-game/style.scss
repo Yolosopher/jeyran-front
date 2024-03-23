@@ -1,0 +1,15 @@
+.current-game-id {
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  border-radius: 12px;
+  padding: 0 12px;
+  height: 40px;
+  background-color: rgb(56, 56, 56);
+  display: flex;
+  justify-content: center;
+  color: #f00;
+  align-items: center;
+}

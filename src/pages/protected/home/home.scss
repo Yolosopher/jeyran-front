@@ -1,0 +1,25 @@
+.home-main,
+.play-main {
+  min-height: calc(100dvh - 102px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 50px;
+  font-size: 1.2rem;
+
+  .create-room-btn {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #00f;
+    background-color: #00f;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #5f6ad4;
+    }
+  }
+}

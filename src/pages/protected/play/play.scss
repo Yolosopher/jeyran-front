@@ -1,0 +1,110 @@
+.play-main {
+  position: relative;
+  user-select: none;
+  .game-state {
+    color: #00ff00;
+    &.lobby {
+      color: #ffa500;
+    }
+    &.paused {
+      color: #ffff00;
+    }
+    &.finished {
+      color: #f00;
+    }
+  }
+  .current-game-span {
+    color: #f00;
+    user-select: text;
+  }
+}
+
+.pre {
+  text-align: left;
+  font-size: 0.8rem;
+  overflow: auto;
+  max-height: 200px;
+}
+.hand-signs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  .sign {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #f00;
+    border: 1px solid #ffa500;
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.play-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s;
+  background-color: #00ff00;
+  &:hover {
+    background-color: #00cc00;
+  }
+}
+
+.creator-menu {
+  top: 20px;
+  right: 20px;
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.leave-button,
+.end-button {
+  background-color: #f00;
+  &:hover {
+    background-color: #ff0000;
+  }
+}
+
+.player-moves {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  .player-move {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    .player-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .player-sign {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #f00;
+      border: 1px solid #ffa500;
+    }
+  }
+}
