@@ -49,9 +49,9 @@ const useInitSocket = () => {
     console.error("connect_error", error);
   };
 
-  const onPong = (msg: string) => {
-    console.log("pong received", msg);
-  };
+  // const onPong = (msg: string) => {
+  //   console.log("pong received", msg);
+  // };
 
   const onError = async (error: string) => {
     if (error === "Token is blacklisted") {
@@ -69,13 +69,13 @@ const useInitSocket = () => {
   };
 
   useEffect(() => {
-    addListener("pong", onPong);
+    // addListener("pong", onPong);
     addListener("err", onError);
     addListener("connect_error", onConnectError);
     addListener("connect", onConnect);
     addListener("disconnect", onDisconnect);
     return () => {
-      removeListener("pong", onPong);
+      // removeListener("pong", onPong);
       removeListener("connect_error", onConnectError);
       removeListener("err", onError);
       removeListener("connect", onConnect);
@@ -86,7 +86,6 @@ const useInitSocket = () => {
   useEffect(() => {
     if (loggedIn) {
       socketLogin();
-      handlePing();
     } else {
       socketLogout();
     }

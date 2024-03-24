@@ -3,9 +3,9 @@ import selfStore from "../../store/selfStore";
 import "./auth.scss";
 
 const AuthLayout = () => {
-  const { info } = selfStore();
+  const { loggedIn } = selfStore();
 
-  if (info) {
+  if (loggedIn) {
     return <Navigate to={"/"} replace />;
   }
   return (

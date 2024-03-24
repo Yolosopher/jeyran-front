@@ -10,12 +10,12 @@ import { faSignal } from "@fortawesome/free-solid-svg-icons";
 import socketStore from "./store/socketStore";
 import useInitSocket from "./hooks/useInitSocket";
 function App() {
-  const { handlePing } = useInitSocket();
+  useInitSocket();
   const { info } = socketStore();
 
   return (
     <>
-      <div className="online-icon" onClick={handlePing}>
+      <div className="online-icon">
         <FontAwesomeIcon
           icon={faSignal}
           color={info.connected ? "#00ff00" : "#f00"}

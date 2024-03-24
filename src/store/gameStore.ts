@@ -2,8 +2,10 @@ import { create } from "zustand";
 import { IGamePopulated } from "../server-types";
 
 type StoreType = {
+  onlinePlayers: string[];
+  setOnlinePlayers: (onlinePlayers: string[]) => void;
   currentGameId: string | null;
-  setCurrentGameId: (currentGame: string) => void;
+  setCurrentGameId: (currentGame: string | null) => void;
   checked: boolean;
   markChecked: () => void;
   gameInfo: IGamePopulated | null;
@@ -20,8 +22,10 @@ const defValue = () => {
 };
 
 const gameStore = create<StoreType>((set) => ({
+  onlinePlayers: [],
+  setOnlinePlayers: (onlinePlayers) => set({ onlinePlayers }),
   currentGameId: null,
-  setCurrentGameId: (currentGameId: string) => set({ currentGameId }),
+  setCurrentGameId: (currentGameId) => set({ currentGameId }),
   checked: false,
   markChecked: () => set({ checked: true }),
   gameInfo: defValue(),

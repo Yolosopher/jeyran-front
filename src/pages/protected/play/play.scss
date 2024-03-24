@@ -6,7 +6,7 @@
     &.lobby {
       color: #ffa500;
     }
-    &.paused {
+    &.stopped {
       color: #ffff00;
     }
     &.finished {
@@ -50,12 +50,11 @@
 }
 
 .play-btn {
-  margin-top: 20px;
   padding: 10px 20px;
   border-radius: 12px;
-  color: #fff;
   cursor: pointer;
   border: none;
+  color: #3f3f3f;
   font-size: 1rem;
   font-weight: bold;
   transition: all 0.3s;
@@ -76,6 +75,7 @@
 
 .leave-button,
 .end-button {
+  color: #fff;
   background-color: #f00;
   &:hover {
     background-color: #ff0000;
@@ -106,5 +106,13 @@
       border: 1px solid #f00;
       border: 1px solid #ffa500;
     }
+  }
+}
+
+.stop-button {
+  color: #242424;
+  background-color: #ffff00;
+  &:hover {
+    background-color: #ffcc00;
   }
 }

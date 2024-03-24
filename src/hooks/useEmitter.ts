@@ -3,6 +3,7 @@ import useAuth from "./useAuth";
 import selfStore from "../store/selfStore";
 import toast from "react-hot-toast";
 import socketStore from "../store/socketStore";
+import gameStore from "../store/gameStore";
 
 type EmitParams = {
   event: string;
@@ -25,6 +26,7 @@ const useEmitter = () => {
   const { socket } = socketStore();
   const { info } = selfStore();
   const { handleRefreshToken, handleLogout } = useAuth();
+  const { setCurrentGameId } = gameStore();
   const [retryQue, setRetryQue] = useState<EmitParams[]>([]);
 
   const handler = useCallback(
@@ -52,11 +54,14 @@ const useEmitter = () => {
             } else if (response.message === "Not authorized") {
               toast(response.message ?? "Unknown error occurred");
               handleLogout(false);
+            } else if (response.message === "Your Current Game not found") {
+              setCurrentGameId(null);
             } else {
               toast(response.message ?? "Unknown error occurred");
             }
           }
         };
+
         socket.emit(event, payload, cb);
       } catch (error: any) {
         toast(error.message, { icon: "🔥" });

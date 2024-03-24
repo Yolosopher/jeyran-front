@@ -17,8 +17,8 @@ const GetGameState = ({ state }: { state: GameState }) => {
       return <span className="game-state">In Progress</span>;
     case GameState.FINISHED:
       return <span className="game-state finished">Finished</span>;
-    case GameState.PAUSED:
-      return <span className="game-state paused">Paused</span>;
+    case GameState.STOPPED:
+      return <span className="game-state stopped">Interrupted</span>;
     default:
       return "Unknown";
   }
