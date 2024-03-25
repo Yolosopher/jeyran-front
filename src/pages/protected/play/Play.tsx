@@ -1,13 +1,13 @@
-import "./play.scss";
+import "./style.scss";
 
 import { Navigate } from "react-router-dom";
 import gameStore from "../../../store/gameStore";
 import useEmitter from "../../../hooks/useEmitter";
 import { GameState } from "../../../server-types";
 import selfStore from "../../../store/selfStore";
-import HandSigns from "./HandSigns";
-import MovesOfOthers from "./moves/MovesOfOthers";
-import CreatorMenu from "./CreatorMenu";
+import CreatorMenu from "../../../components/play/CreatorMenu";
+import MovesOfOthers from "../../../components/play/moves/MovesOfOthers";
+import HandSigns from "../../../components/play/HandSigns";
 
 const GetGameState = ({ state }: { state: GameState }) => {
   switch (state) {
@@ -39,26 +39,28 @@ const Play = () => {
     return <Navigate to={"/"} replace />;
   }
   return (
-    <main className="play-main">
-      {gameInfo.creator.id === info!.id && <CreatorMenu />}
-      <h1>Game {<GetGameState state={gameInfo.state} />}</h1>
-      <h4>
-        Game Code: <span className="current-game-span">{currentGameId}</span>
-      </h4>
-      <button
-        type="button"
-        onClick={handleLeaveGame}
-        className="play-btn leave-button"
-      >
-        Leave Game
-      </button>
+    <div className="main-container">
+      <main className="play-main">
+        {gameInfo.creator.id === info!.id && <CreatorMenu />}
+        <h1>Game {<GetGameState state={gameInfo.state} />}</h1>
+        <h4>
+          Game Code: <span className="current-game-span">{currentGameId}</span>
+        </h4>
+        <button
+          type="button"
+          onClick={handleLeaveGame}
+          className="play-btn leave-button"
+        >
+          Leave Game
+        </button>
 
-      {/* <pre className="pre">
+        {/* <pre className="pre">
         {JSON.stringify(gameInfo.currentRound, null, 2)}
       </pre> */}
-      <MovesOfOthers />
-      <HandSigns />
-    </main>
+        <MovesOfOthers />
+        <HandSigns />
+      </main>
+    </div>
   );
 };
 export default Play;

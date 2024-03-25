@@ -9,9 +9,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignal } from "@fortawesome/free-solid-svg-icons";
 import socketStore from "./store/socketStore";
 import useInitSocket from "./hooks/useInitSocket";
+import { useEffect } from "react";
+import useEmitter from "./hooks/useEmitter";
 function App() {
   useInitSocket();
   const { info } = socketStore();
+  const { emitter } = useEmitter();
+
+  const handlePing = () => {
+    emitter({
+      event: "ping",
+      data: "ping",
+    });
+  };
+
+  useEffect(() => {
+    if (info.connected) {
+      handlePing();
+    }
+  }, [info]);
 
   return (
     <>

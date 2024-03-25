@@ -1,8 +1,7 @@
 import { useMemo } from "react";
-import gameStore from "../../../../store/gameStore";
-import { MoveType } from "../../../../server-types";
-import selfStore from "../../../../store/selfStore";
 import PlayerMove from "./PlayerMove";
+import selfStore from "../../../store/selfStore";
+import gameStore from "../../../store/gameStore";
 
 const MovesOfOthers = () => {
   const { info } = selfStore();
@@ -17,10 +16,14 @@ const MovesOfOthers = () => {
     <div className="player-moves">
       {movesOfOthers.map(({ move, player }) => {
         return (
-          <div key={player.id} className="player-move">
-            <div className="player-name">{player.username}</div>
-            <PlayerMove sign={move} />
-          </div>
+          <PlayerMove
+            key={player.id}
+            data={{
+              id: player.id,
+              move,
+              username: player.username,
+            }}
+          />
         );
       })}
     </div>

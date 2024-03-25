@@ -35,9 +35,9 @@ const HelperLayout = () => {
     setCurrentGameId(gameId);
   };
 
-  const onlinePlayersHandler = (players: string[]) => {
+  const onlinePlayersHandler = (players: string[] | null) => {
     console.log("onlinePlayers", players);
-    setOnlinePlayers(players);
+    setOnlinePlayers(players ?? []);
   };
 
   useEffect(() => {

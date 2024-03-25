@@ -12,7 +12,6 @@ const useInitSocket = () => {
   const { socket, setInfo } = socketStore();
   const { addListener, removeListener } = useListener();
   const { handleLogout, handleRefreshToken } = useAuth();
-  const { emitter } = useEmitter();
 
   const socketLogin = () => {
     console.log("logging in");
@@ -22,13 +21,6 @@ const useInitSocket = () => {
   const socketLogout = () => {
     console.log("logging out");
     socket.disconnect();
-  };
-
-  const handlePing = () => {
-    emitter({
-      event: "ping",
-      data: "ping",
-    });
   };
 
   const onConnect = () => {
@@ -91,6 +83,6 @@ const useInitSocket = () => {
     }
   }, [loggedIn]);
 
-  return { handlePing };
+  return null;
 };
 export default useInitSocket;

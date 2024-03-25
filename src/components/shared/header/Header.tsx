@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import "./header.scss";
 import useAuth from "../../../hooks/useAuth";
+import selfStore from "../../../store/selfStore";
 
 const Header = () => {
   const { handleLogout } = useAuth();
+  const username = selfStore((state) => state.info!.username);
 
   const logout = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     handleLogout();
@@ -19,7 +21,7 @@ const Header = () => {
           Play
         </Link>
         <div className="link" onClick={logout}>
-          Logout
+          ({username})Logout
         </div>
       </nav>
     </header>
