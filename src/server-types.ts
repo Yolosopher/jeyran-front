@@ -1,6 +1,6 @@
 import { Role } from "./global-types";
 
-export interface IUser extends Document {
+export interface IUser {
   _id?: string;
   id?: string;
   username: string;
@@ -40,7 +40,7 @@ type PlayerMovePopulatedType = {
   player: UserPopulatedType;
   move: MoveType;
 };
-type RoundPopulatedType = {
+export type RoundPopulatedType = {
   winners: UserPopulatedType[];
   playerMoves: PlayerMovePopulatedType[];
 };

@@ -1,0 +1,96 @@
+.game-history {
+  --from-edge-length: 30px;
+  --btn-width: 55px;
+  --padding: 15px;
+  height: 100%;
+  display: flex;
+  padding: var(--padding);
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  border-radius: 20px 0 0 20px;
+  background: #333;
+  filter: drop-shadow(0 0 4px #ff00007e);
+  transition: all 0.15s ease-in-out;
+  overflow: visible;
+  .toggler-btn,
+  .history {
+    flex-shrink: 0;
+  }
+
+  .toggler-btn {
+    right: calc(100% - var(--from-edge-length));
+    width: var(--btn-width);
+    height: var(--btn-width);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: absolute;
+
+    color: #faeaea;
+    // filter: drop-shadow(0 0 4px #ff00007e);
+    transition: all 0.15s ease-in-out;
+
+    svg {
+      aspect-ratio: 1/1;
+    }
+    .shadow {
+      width: 100%;
+      height: 100%;
+      background: #333;
+      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 8px;
+      transition: clip-path 0.15s ease-in-out;
+      filter: drop-shadow(0 0 4px #ff00007e);
+    }
+  }
+  .history {
+    width: calc(var(--game-content-width) - (var(--padding) * 2));
+    position: relative;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+
+    transition: all 0.15s ease-in-out;
+    // align-items: flex-start;
+  }
+  .history-list {
+    padding: 0 30px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
+    max-height: calc(100dvh - 102px - 60px);
+  }
+
+  &.hovered {
+    filter: drop-shadow(0 0 10px #ff00007e);
+    .toggler-btn {
+      color: #f00;
+    }
+  }
+  &.toggled {
+    // width: calc(var(--game-content-width) + var(--padding) * 2);
+    .toggler-btn {
+      filter: drop-shadow(0 0 8px #ff0000);
+      .shadow {
+        border-radius: 6px 0 0 6px;
+        padding-left: 0;
+        padding-right: 8px;
+        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+      }
+    }
+    .history {
+      padding: 0;
+    }
+  }
+}

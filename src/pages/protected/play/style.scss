@@ -95,12 +95,18 @@
   gap: 20px;
 }
 
-.leave-button,
+.leave-button {
+  color: #f00;
+  background-color: #fafafa;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
 .end-button {
   color: #fff;
-  background-color: #f00;
+  background-color: #8b0000;
   &:hover {
-    background-color: #ff0000;
+    background-color: #a52a2a;
   }
 }
 
@@ -167,4 +173,26 @@
 .fa-flip {
   animation-duration: 4s !important;
   // animation-direction: alternate !important;
+}
+
+.game-content {
+  --game-content-width: 40px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  width: 100%;
+  height: 100%;
+  .left,
+  .right {
+    height: 100%;
+    // background: lightcoral;
+  }
+  .left,
+  .right {
+    width: var(--game-content-width);
+    transition: width 0.15s ease-in-out;
+  }
+  &.toggled {
+    --game-content-width: 400px;
+  }
 }

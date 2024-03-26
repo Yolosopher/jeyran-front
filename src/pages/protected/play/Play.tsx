@@ -8,20 +8,20 @@ import selfStore from "../../../store/selfStore";
 import CreatorMenu from "../../../components/play/CreatorMenu";
 import MovesOfOthers from "../../../components/play/moves/MovesOfOthers";
 import HandSigns from "../../../components/play/HandSigns";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import GameInfo from "../../../components/play/game-info/GameInfo";
 import Head from "./Head";
+import GameHistory from "../../../components/play/game-history/GameHistory";
 
 const Play = () => {
+  const gameContentRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const { gameInfo, currentGameId, checked } = gameStore();
   const { id } = useParams();
-  const { info } = selfStore();
   const { emitter } = useEmitter();
 
   useEffect(() => {
     if (!currentGameId) {
-      console.log("running game-join");
       if (checked) {
         emitter({
           event: "game-join",
@@ -39,12 +39,22 @@ const Play = () => {
   return (
     <>
       <Head roomCode={currentGameId!} />
-      <div className="main-container">
+      <div
+        className="main-container"
+        style={{
+          padding: "20px 0",
+        }}
+      >
         <main className="play-main">
-          <GameInfo />
-          {gameInfo.creator.id === info!.id && <CreatorMenu />}
-          <MovesOfOthers />
-          <HandSigns />
+          <div ref={gameContentRef} className="game-content">
+            <div className="left"></div>
+            <div className="mid">
+              <GameInfo />
+              <MovesOfOthers />
+              <HandSigns />
+            </div>
+            <GameHistory rf={gameContentRef} />
+          </div>
         </main>
       </div>
     </>

@@ -18,9 +18,6 @@ const Header = () => {
         <Link className="link" to="/">
           Home
         </Link>
-        <Link className="link" to="/play">
-          Play
-        </Link>
         <div
           className="link"
           onClick={() => {

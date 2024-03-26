@@ -30,7 +30,7 @@ const HandSigns = () => {
       myMove: myRoundInfo.move,
       alreadyPlayed: myRoundInfo.move !== "none",
     };
-  }, [currentRound]);
+  }, [currentRound, myId]);
 
   const handleAction = async (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const sign = e.currentTarget.title.toLowerCase();

@@ -4,7 +4,11 @@ import useEmitter from "../../hooks/useEmitter";
 import gameStore from "../../store/gameStore";
 import { GameState } from "../../server-types";
 
-const CreatorMenu = () => {
+type CreatorMenuProps = {
+  children?: React.ReactNode;
+};
+
+const CreatorMenu = ({ children }: CreatorMenuProps) => {
   const gameId = gameStore((state) => state.gameInfo!.gameId);
   const gameState = gameStore((state) => state.gameInfo!.state);
 
@@ -35,7 +39,7 @@ const CreatorMenu = () => {
     });
   };
   return (
-    <div className="creator-menu">
+    <>
       {gameState === GameState.LOBBY && (
         <button
           type="button"
@@ -60,7 +64,7 @@ const CreatorMenu = () => {
           />
         </button>
       )}
-
+      {children}
       {gameState === GameState.IN_PROGRESS && (
         <button
           type="button"
@@ -81,7 +85,7 @@ const CreatorMenu = () => {
           <FontAwesomeIcon icon={faPowerOff} size="2x" />
         </button>
       )}
-    </div>
+    </>
   );
 };
 
