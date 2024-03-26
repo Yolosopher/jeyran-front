@@ -15,6 +15,12 @@ const useAuth = () => {
     }
   }, [info?.accessToken]);
 
+  const setAccessToken = (accessToken: string) => {
+    if (info) {
+      updateInfo({ ...info, accessToken });
+    }
+  };
+
   const handleLogin = async (username: string, password: string) => {
     try {
       const result = await request({
@@ -60,7 +66,9 @@ const useAuth = () => {
         method: "GET",
       });
       if (result.success) {
-        updateInfo(result.data);
+        if (result.data.accessToken !== info?.accessToken) {
+          setAccessToken(result.data.accessToken);
+        }
         if (callback) {
           setDelayedEmitter(callback);
         }

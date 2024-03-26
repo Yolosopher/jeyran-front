@@ -24,7 +24,7 @@ type EmitPayload = {
 
 const useEmitter = () => {
   const { socket } = socketStore();
-  const { info } = selfStore();
+  const { info, updateInfo } = selfStore();
   const { handleRefreshToken, handleLogout } = useAuth();
   const { setCurrentGameId } = gameStore();
   const [retryQue, setRetryQue] = useState<EmitParams[]>([]);
@@ -67,7 +67,13 @@ const useEmitter = () => {
         toast(error.message, { icon: "🔥" });
       }
     },
-    [handleLogout, handleRefreshToken, info?.accessToken, socket]
+    [
+      handleLogout,
+      handleRefreshToken,
+      info?.accessToken,
+      socket,
+      setCurrentGameId,
+    ]
   );
   const emitter = (params: EmitParams) => {
     handler(params);

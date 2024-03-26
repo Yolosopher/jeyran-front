@@ -11,9 +11,11 @@ import socketStore from "./store/socketStore";
 import useInitSocket from "./hooks/useInitSocket";
 import { useEffect } from "react";
 import useEmitter from "./hooks/useEmitter";
+import useAuth from "./hooks/useAuth";
 function App() {
   useInitSocket();
   const { info } = socketStore();
+  const { handleRefreshToken } = useAuth();
   const { emitter } = useEmitter();
 
   const handlePing = () => {
@@ -31,7 +33,7 @@ function App() {
 
   return (
     <>
-      <div className="online-icon">
+      <div className="online-icon" onClick={handlePing}>
         <FontAwesomeIcon
           icon={faSignal}
           color={info.connected ? "#00ff00" : "#f00"}

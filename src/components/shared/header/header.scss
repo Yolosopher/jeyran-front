@@ -23,3 +23,17 @@
     }
   }
 }
+
+.accessToken {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 90vw;
+  text-align: right;
+  height: auto;
+  display: flex;
+  p {
+    width: 100%;
+    word-wrap: break-word;
+  }
+}

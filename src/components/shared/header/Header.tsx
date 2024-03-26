@@ -5,13 +5,14 @@ import selfStore from "../../../store/selfStore";
 
 const Header = () => {
   const { handleLogout } = useAuth();
+  // const accessToken = selfStore((state) => state.info!.accessToken);
   const username = selfStore((state) => state.info!.username);
 
-  const logout = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    handleLogout();
-  };
   return (
     <header className="header">
+      {/* <div className="accessToken">
+        <p>{accessToken}</p>
+      </div> */}
       <h1 className="logo">Rock Paper Scissors</h1>
       <nav className="menu">
         <Link className="link" to="/">
@@ -20,7 +21,12 @@ const Header = () => {
         <Link className="link" to="/play">
           Play
         </Link>
-        <div className="link" onClick={logout}>
+        <div
+          className="link"
+          onClick={() => {
+            handleLogout();
+          }}
+        >
           ({username})Logout
         </div>
       </nav>

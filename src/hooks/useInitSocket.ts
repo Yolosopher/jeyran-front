@@ -5,7 +5,6 @@ import useListener from "./useListener";
 import socketStore from "../store/socketStore";
 import toast from "react-hot-toast";
 import useAuth from "./useAuth";
-import useEmitter from "./useEmitter";
 
 const useInitSocket = () => {
   const { loggedIn, info } = selfStore();
@@ -52,7 +51,6 @@ const useInitSocket = () => {
       handleLogout();
     } else if (error == "Invalid accessToken") {
       await handleRefreshToken();
-      // await socketLogin();
     }
     toast(error ?? "Unknown error occurred", {
       icon: "❌",
