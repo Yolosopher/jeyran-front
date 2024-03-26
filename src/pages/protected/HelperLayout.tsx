@@ -13,6 +13,8 @@ const HelperLayout = () => {
     currentGameId,
     setCurrentGameId,
     setOnlinePlayers,
+    checked,
+    markChecked,
   } = gameStore();
 
   const { addListener, removeListener } = useListener();
@@ -33,6 +35,9 @@ const HelperLayout = () => {
       position: "top-right",
     });
     setCurrentGameId(gameId);
+    if (!checked) {
+      markChecked();
+    }
   };
 
   const onlinePlayersHandler = (players: string[] | null) => {

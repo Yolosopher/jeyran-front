@@ -5,10 +5,10 @@ import gameStore from "../../../store/gameStore";
 import "./style.scss";
 
 const Home = () => {
-  const { gameInfo } = gameStore();
+  const gameId = gameStore((state) => state.currentGameId);
 
-  if (gameInfo) {
-    return <Navigate to={"/play"} replace />;
+  if (gameId) {
+    return <Navigate to={`/play/${gameId}`} replace />;
   }
   return (
     <div className="main-container">

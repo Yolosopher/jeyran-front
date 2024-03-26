@@ -12,6 +12,7 @@ import useInitSocket from "./hooks/useInitSocket";
 import { useEffect } from "react";
 import useEmitter from "./hooks/useEmitter";
 import useAuth from "./hooks/useAuth";
+import LeaveGame from "./pages/protected/leave-game/LeaveGame";
 function App() {
   useInitSocket();
   const { info } = socketStore();
@@ -48,7 +49,8 @@ function App() {
         {/* protected */}
         <Route path="/" element={<ProtectedLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/play" element={<Play />} />
+          <Route path="/play/leave" element={<LeaveGame />} />
+          <Route path="/play/:id" element={<Play />} />
           {/* <Route path="/post/:postId" element={<Post />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/user/:username" element={<User />} /> */}

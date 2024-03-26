@@ -42,7 +42,7 @@ const CreatorMenu = () => {
           onClick={handleStartGame}
           className="play-btn start-button"
         >
-          Start Game
+          <FontAwesomeIcon icon={faPlay} size="2x" />
         </button>
       )}
 
@@ -71,15 +71,16 @@ const CreatorMenu = () => {
           <FontAwesomeIcon icon={faPause} size="2x" />
         </button>
       )}
-
-      <button
-        type="button"
-        onClick={handleEndGame}
-        className="play-btn end-button"
-        title="Finish Game"
-      >
-        <FontAwesomeIcon icon={faPowerOff} size="2x" />
-      </button>
+      {gameState !== GameState.FINISHED && (
+        <button
+          type="button"
+          onClick={handleEndGame}
+          className="play-btn end-button"
+          title="Finish Game"
+        >
+          <FontAwesomeIcon icon={faPowerOff} size="2x" />
+        </button>
+      )}
     </div>
   );
 };

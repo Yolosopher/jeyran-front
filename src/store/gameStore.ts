@@ -25,7 +25,12 @@ const gameStore = create<StoreType>((set) => ({
   onlinePlayers: [],
   setOnlinePlayers: (onlinePlayers) => set({ onlinePlayers }),
   currentGameId: null,
-  setCurrentGameId: (currentGameId) => set({ currentGameId }),
+  setCurrentGameId: (currentGameId) => {
+    // if (currentGameId === null) {
+    //   set({ checked: false });
+    // }
+    set({ currentGameId });
+  },
   checked: false,
   markChecked: () => set({ checked: true }),
   gameInfo: defValue(),
