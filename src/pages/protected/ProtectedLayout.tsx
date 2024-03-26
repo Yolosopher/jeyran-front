@@ -8,7 +8,7 @@ const ProtectedLayout = () => {
   const { loggedIn } = selfStore();
 
   if (!loggedIn) {
-    return <Navigate to={"/auth/login"} replace />;
+    return <Navigate to={"/auth/login"} />;
   }
   return (
     <div className="prot-layout">

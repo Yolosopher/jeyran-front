@@ -3,21 +3,25 @@ import CreateRoom from "../../../components/home/CreateRoom";
 import JoinGame from "../../../components/home/JoinGame";
 import gameStore from "../../../store/gameStore";
 import "./style.scss";
+import Head from "./Head";
 
 const Home = () => {
   const gameId = gameStore((state) => state.currentGameId);
 
   if (gameId) {
-    return <Navigate to={`/play/${gameId}`} replace />;
+    return <Navigate to={`/play/${gameId}`} />;
   }
   return (
-    <div className="main-container">
-      <main className="home-main">
-        <JoinGame />
+    <>
+      <Head />
+      <div className="main-container">
+        <main className="home-main">
+          <JoinGame />
 
-        <CreateRoom />
-      </main>
-    </div>
+          <CreateRoom />
+        </main>
+      </div>
+    </>
   );
 };
 export default Home;

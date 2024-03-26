@@ -6,7 +6,7 @@ const AuthLayout = () => {
   const { loggedIn } = selfStore();
 
   if (loggedIn) {
-    return <Navigate to={"/"} replace />;
+    return <Navigate to={"/"} />;
   }
   return (
     <div className="auth-main">

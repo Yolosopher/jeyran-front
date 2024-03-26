@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import Head from "./Head";
 
 const Login = () => {
   const { handleLogin } = useAuth();
@@ -13,6 +14,7 @@ const Login = () => {
   };
   return (
     <>
+      <Head />
       <h1>Login</h1>
       <p>Log in to your account</p>
       <form className="auth-form" onSubmit={submitHandler}>

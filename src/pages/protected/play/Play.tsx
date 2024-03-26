@@ -10,6 +10,7 @@ import MovesOfOthers from "../../../components/play/moves/MovesOfOthers";
 import HandSigns from "../../../components/play/HandSigns";
 import { useEffect } from "react";
 import GameInfo from "../../../components/play/game-info/GameInfo";
+import Head from "./Head";
 
 const Play = () => {
   const navigate = useNavigate();
@@ -36,14 +37,17 @@ const Play = () => {
     return null;
   }
   return (
-    <div className="main-container">
-      <main className="play-main">
-        <GameInfo />
-        {gameInfo.creator.id === info!.id && <CreatorMenu />}
-        <MovesOfOthers />
-        <HandSigns />
-      </main>
-    </div>
+    <>
+      <Head roomCode={currentGameId!} />
+      <div className="main-container">
+        <main className="play-main">
+          <GameInfo />
+          {gameInfo.creator.id === info!.id && <CreatorMenu />}
+          <MovesOfOthers />
+          <HandSigns />
+        </main>
+      </div>
+    </>
   );
 };
 export default Play;

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import request from "../../../request";
+import Head from "./Head";
 
 const Register = () => {
   const [username, setUsername] = useState<string>("");
@@ -28,6 +29,7 @@ const Register = () => {
   };
   return (
     <>
+      <Head />
       <h1>Register</h1>
       <p>Create a new account</p>
       <form className="auth-form" onSubmit={submitHandler}>

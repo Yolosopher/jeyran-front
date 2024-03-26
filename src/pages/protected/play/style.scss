@@ -1,5 +1,6 @@
 .play-main {
   position: relative;
+  justify-content: space-between;
   user-select: none;
   .game-state {
     color: #00ff00;
@@ -136,4 +137,34 @@
   &:hover {
     background-color: #ffcc00;
   }
+}
+
+.sign {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  aspect-ratio: 1/1;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  &.active {
+    border: 1px solid #ffa500;
+    // opacity: 0.7;
+  }
+  svg {
+    aspect-ratio: 1/1;
+  }
+  &:disabled {
+    // cursor: auto;
+  }
+}
+
+// .flip-container {
+//   transform: rotate(180deg);
+// }
+
+.fa-flip {
+  animation-duration: 4s !important;
+  // animation-direction: alternate !important;
 }
