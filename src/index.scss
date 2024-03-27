@@ -1,11 +1,26 @@
 :root {
+  // colors
+  --red: #f00;
+  --red-hover: #ff0000cd;
+  --darkred: #8b0000;
+  --darkred-hover: #a52a2a;
+  --red-shadow: #ff00007e;
+  --orange: #ffa500;
+  --yellow: #ffff00;
+  --yellow-hover: #ffcc00;
+  --green: #00ff00;
+  --green-hover: #00cc00;
+  --white-light: #f9f9f9;
+  --primary-bg: #242424;
+  --card-bg: #333;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--primary-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,19 +39,6 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 .online-icon {
   cursor: pointer;
   position: fixed;
@@ -46,10 +48,10 @@ a {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  background-color: rgb(56, 56, 56);
+  background-color: var(--primary-bg);
   display: flex;
   justify-content: center;
-  color: #f00;
+  color: var(--red);
   align-items: center;
 }
 button {

@@ -9,6 +9,7 @@ import {
   faHourglassStart,
 } from "@fortawesome/free-solid-svg-icons";
 import { useMemo } from "react";
+import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 
 type HandleAction = (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 type HandSignParams = {
@@ -16,6 +17,9 @@ type HandSignParams = {
   handleAction?: HandleAction;
   active?: boolean;
   disabled?: boolean;
+  size?: SizeProp;
+  winner?: boolean;
+  loser?: boolean;
 };
 
 export type ActionParams = {
@@ -24,25 +28,33 @@ export type ActionParams = {
   disabled?: boolean;
 };
 
-const Paper = () => {
-  return <FontAwesomeIcon size={"5x"} icon={faHand} />;
+type IconParams = {
+  size?: SizeProp;
 };
-const Rock = () => {
-  return <FontAwesomeIcon size={"5x"} icon={faHandFist} />;
+
+const Paper = ({ size }: IconParams) => {
+  return <FontAwesomeIcon size={size ?? "5x"} icon={faHand} />;
 };
-const Scissors = () => {
-  return <FontAwesomeIcon size={"5x"} icon={faHandScissors} />;
+const Rock = ({ size }: IconParams) => {
+  return <FontAwesomeIcon size={size ?? "5x"} icon={faHandFist} />;
 };
-const Hidden = () => {
+const Scissors = ({ size }: IconParams) => {
+  return <FontAwesomeIcon size={size ?? "5x"} icon={faHandScissors} />;
+};
+const Hidden = ({ size }: IconParams) => {
   return (
-    <FontAwesomeIcon size={"5x"} icon={faGrinTongue} title="Made a move" />
+    <FontAwesomeIcon
+      size={size ?? "5x"}
+      icon={faGrinTongue}
+      title="Made a move"
+    />
   );
 };
-const None = () => {
+const None = ({ size }: IconParams) => {
   return (
     <FontAwesomeIcon
       icon={faHourglassStart}
-      size={"5x"}
+      size={size ?? "5x"}
       // @ts-expect-error flip is not in the types
       flip
       title="Thinking..."
@@ -50,19 +62,27 @@ const None = () => {
   );
 };
 
-const HandSign = ({ sign, handleAction, active, disabled }: HandSignParams) => {
+const HandSign = ({
+  sign,
+  handleAction,
+  active,
+  disabled,
+  size,
+  winner,
+  loser,
+}: HandSignParams) => {
   const Sign = () => {
     switch (sign) {
       case "rock":
-        return <Rock />;
+        return <Rock size={size} />;
       case "paper":
-        return <Paper />;
+        return <Paper size={size} />;
       case "scissors":
-        return <Scissors />;
+        return <Scissors size={size} />;
       case "hidden":
-        return <Hidden />;
+        return <Hidden size={size} />;
       case "none":
-        return <None />;
+        return <None size={size} />;
       default:
         console.error("Invalid sign", sign);
         return null;
@@ -78,7 +98,9 @@ const HandSign = ({ sign, handleAction, active, disabled }: HandSignParams) => {
   return (
     <button
       type="button"
-      className={`sign${active ? " active" : ""}`}
+      className={`sign${active ? " active" : ""}${winner ? " winner" : ""}${
+        loser ? " loser" : ""
+      }`}
       {...(handleAction && { onClick: handleAction })}
       title={capitalized}
       disabled={isDisabled}

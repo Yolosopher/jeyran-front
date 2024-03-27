@@ -17,21 +17,21 @@
     font-size: 1rem;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #f00;
+    border: 1px solid var(--red);
   }
   button {
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #f00;
-    background-color: #f00;
+    border: 1px solid var(--red);
+    background-color: var(--red);
     color: #fff;
     cursor: pointer;
   }
   .auth-link {
     text-decoration: none;
-    color: #f00;
+    color: var(--red);
     &:hover {
-      color: #f00;
+      color: var(--red);
     }
   }
 }

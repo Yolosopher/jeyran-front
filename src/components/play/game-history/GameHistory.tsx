@@ -9,7 +9,7 @@ type GameHistoryProps = {
 };
 
 const GameHistory = ({ rf }: GameHistoryProps) => {
-  const [toggled, setToggled] = useState<boolean>(false);
+  const [toggled, setToggled] = useState<boolean>(true);
   const [hovered, setHovered] = useState<boolean>(false);
 
   useEffect(() => {

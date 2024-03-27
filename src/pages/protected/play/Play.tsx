@@ -1,14 +1,11 @@
 import "./style.scss";
 
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import gameStore from "../../../store/gameStore";
 import useEmitter from "../../../hooks/useEmitter";
-import { GameState } from "../../../server-types";
-import selfStore from "../../../store/selfStore";
-import CreatorMenu from "../../../components/play/CreatorMenu";
 import MovesOfOthers from "../../../components/play/moves/MovesOfOthers";
 import HandSigns from "../../../components/play/HandSigns";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import GameInfo from "../../../components/play/game-info/GameInfo";
 import Head from "./Head";
 import GameHistory from "../../../components/play/game-history/GameHistory";
