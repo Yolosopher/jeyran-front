@@ -2,7 +2,6 @@
 import { Outlet } from "react-router-dom";
 import useListener from "../../hooks/useListener";
 import { useEffect } from "react";
-import toast from "react-hot-toast";
 import gameStore from "../../store/gameStore";
 import { IGamePopulated } from "../../server-types";
 
@@ -21,19 +20,19 @@ const HelperLayout = () => {
 
   const gameInfoHandler = (gameInfo: IGamePopulated) => {
     console.log("gameInfo", gameInfo);
-    toast("Game info received", {
-      icon: "🎮",
-      position: "top-right",
-    });
+    // toast("Game info received", {
+    //   icon: "🎮",
+    //   position: "top-right",
+    // });
     setGameInfo(gameInfo);
   };
 
   const currentGameIdHandler = (gameId: string) => {
     console.log("gameId", gameId);
-    toast("Game id received", {
-      icon: "🎮",
-      position: "top-right",
-    });
+    // toast("Game id received", {
+    //   icon: "🎮",
+    //   position: "top-right",
+    // });
     setCurrentGameId(gameId);
     if (!checked) {
       markChecked();

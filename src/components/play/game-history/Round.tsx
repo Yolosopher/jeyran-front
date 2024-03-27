@@ -1,6 +1,5 @@
 import { Scrollbar } from "react-scrollbars-custom";
 import { RoundPopulatedType } from "../../../server-types";
-import Player from "../../shared/username/Username";
 import PlayerMove from "../moves/PlayerMove";
 import { useMemo } from "react";
 

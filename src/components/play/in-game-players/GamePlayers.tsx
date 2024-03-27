@@ -1,13 +1,12 @@
+import { faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHistory } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useMemo, useRef, useState } from "react";
-import History from "./History";
+import { useEffect, useMemo, useState } from "react";
+import InGamePlayers from "./InGamePlayers";
 
-type GameHistoryProps = {
+type GamePlayersProps = {
   rf: React.RefObject<HTMLDivElement>;
 };
-
-const GameHistory = ({ rf }: GameHistoryProps) => {
+const GamePlayers = ({ rf }: GamePlayersProps) => {
   const matchmedia = useMemo(
     () => window.matchMedia("(min-width: 1200px)"),
     []
@@ -19,16 +18,16 @@ const GameHistory = ({ rf }: GameHistoryProps) => {
     const ref = rf?.current;
     if (ref) {
       if (toggled) {
-        ref.classList.add("toggled-right");
+        ref.classList.add("toggled-left");
       } else {
-        ref.classList.remove("toggled-right");
+        ref.classList.remove("toggled-left");
       }
     }
-  }, [toggled, rf]);
+  }, [toggled]);
   return (
-    <div className="right">
+    <div className="left">
       <div
-        className={`game-history${hovered ? " hovered " : ""}${
+        className={`gameplayers-box${hovered ? " hovered " : ""}${
           toggled ? " toggled" : ""
         }`}
       >
@@ -37,17 +36,17 @@ const GameHistory = ({ rf }: GameHistoryProps) => {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           onClick={() => setToggled((prevstate) => !prevstate)}
-          title="Game History"
+          title="Game Players"
         >
           <div className="shadow">
-            <FontAwesomeIcon icon={faHistory} size="1x" />
+            <FontAwesomeIcon icon={faPeopleGroup} size="1x" />
           </div>
         </div>
-        <div className="history">
-          <History />
+        <div className="gameplayers">
+          <InGamePlayers />
         </div>
       </div>
     </div>
   );
 };
-export default GameHistory;
+export default GamePlayers;

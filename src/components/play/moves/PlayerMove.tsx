@@ -18,9 +18,11 @@ const PlayerMove = ({
   data: DataParams;
 }) => {
   return (
-    <div className="player">
-      <div className={`player-name${winner ? " winner" : ""}`}>@{username}</div>
-      <div className="player-move">
+    <div className="round-player">
+      <div className={`round-username${winner ? " winner" : ""}`}>
+        @{username}
+      </div>
+      <div className="round-player-move">
         <HandSign
           sign={move}
           size={size}

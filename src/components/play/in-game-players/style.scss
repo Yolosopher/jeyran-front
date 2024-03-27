@@ -1,5 +1,64 @@
-.in-game-players {
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
+.player {
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  width: 100%;
+  .hr {
+    margin: 10px 0;
+    border: 0;
+    border-top: 1px solid #e0e0e08d;
+  }
+  &-user {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+  &-name {
+    font-weight: bold;
+    flex: 1;
+  }
+  &-status {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    &.ingame-status {
+      transform-origin: center center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      width: 40px;
+      background: #000;
+      height: 40px;
+      svg {
+        width: 23px;
+        height: 23px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    &.online-status {
+    }
+    &.active {
+      color: var(--green);
+    }
+  }
+  &-score {
+    text-align: right;
+  }
+}
+.playing-animation {
+  animation: playing infinite linear;
+  animation-duration: 3s;
+}
+
+@keyframes playing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

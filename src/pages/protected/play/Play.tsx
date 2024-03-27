@@ -9,6 +9,7 @@ import { useEffect, useRef } from "react";
 import GameInfo from "../../../components/play/game-info/GameInfo";
 import Head from "./Head";
 import GameHistory from "../../../components/play/game-history/GameHistory";
+import GamePlayers from "../../../components/play/in-game-players/GamePlayers";
 
 const Play = () => {
   const gameContentRef = useRef<HTMLDivElement>(null);
@@ -44,7 +45,7 @@ const Play = () => {
       >
         <main className="play-main">
           <div ref={gameContentRef} className="game-content">
-            <div className="left"></div>
+            <GamePlayers rf={gameContentRef} />
             <div className="mid">
               <GameInfo />
               <MovesOfOthers />

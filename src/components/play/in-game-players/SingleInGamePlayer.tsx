@@ -1,12 +1,20 @@
 import { useMemo } from "react";
 import gameStore from "../../../store/gameStore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWifi } from "@fortawesome/free-solid-svg-icons";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 type SingleInGamePlayerProps = {
   id: string;
   username: string;
+  score: number;
 };
 
-const SingleInGamePlayer = ({ id, username }: SingleInGamePlayerProps) => {
+const SingleInGamePlayer = ({
+  id,
+  username,
+  score,
+}: SingleInGamePlayerProps) => {
   const onlinePlayers = gameStore((state) => state.onlinePlayers);
   const inGamePlayers = gameStore((state) => state.gameInfo!.inGamePlayers);
 
@@ -19,20 +27,33 @@ const SingleInGamePlayer = ({ id, username }: SingleInGamePlayerProps) => {
   }, [id, inGamePlayers]);
 
   return (
-    <div className="item">
-      <div className="player-name">{username}</div>
-      {/* is online */}
-      <div
-        className={`player-status online-status${isOnline ? " active" : ""}`}
-      >
-        {isOnline ? "Online" : "Offline"}
+    <div className="player">
+      <div className="player-user">
+        <div className="player-name">@{username}</div>
+        {/* is in this game */}
+        {isInGame && (
+          <div
+            className={`player-status online-status${
+              isOnline ? " active" : ""
+            }`}
+          >
+            <FontAwesomeIcon icon={faWifi} size="1x" />
+          </div>
+        )}
+        {/* is online */}
+        <div
+          className={`player-status ingame-status${isOnline ? " active" : ""}`}
+        >
+          <div
+            className={isInGame ? "playing-animation" : ""}
+            title={isInGame ? "In Game" : "Not In Game"}
+          >
+            <FontAwesomeIcon icon={faDiscord} size="1x" />
+          </div>
+        </div>
       </div>
-      {/* is in this game */}
-      <div
-        className={`player-status ingame-status${isOnline ? " active" : ""}`}
-      >
-        {isInGame ? "In Game" : "Not In Game"}
-      </div>
+      <div className="hr"></div>
+      <div className="player-score">Score: {score}</div>
     </div>
   );
 };
