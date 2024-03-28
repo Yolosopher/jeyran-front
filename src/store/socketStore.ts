@@ -18,6 +18,7 @@ const socketStore = create<StoreType>((set) => ({
     autoConnect: false,
     rejectUnauthorized: false,
     reconnectionAttempts: 3,
+    reconnectionDelay: 1000 * 5,
   }),
   info: {
     connected: false,
