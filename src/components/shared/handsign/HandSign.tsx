@@ -51,14 +51,36 @@ const Hidden = ({ size }: IconParams) => {
   );
 };
 const None = ({ size }: IconParams) => {
+  const sizeStyle = useMemo(() => {
+    const result = {
+      width: "0",
+      height: "0",
+    };
+
+    const parsedValue = parseInt(size as string);
+    if (parsedValue) {
+      result.width = `${parsedValue}em`;
+      result.height = `${parsedValue}em`;
+    } else {
+      result.width = `5em`;
+      result.height = `5em`;
+    }
+    return result;
+  }, [size]);
   return (
-    <FontAwesomeIcon
-      icon={faHourglassStart}
-      size={size ?? "5x"}
-      // @ts-expect-error flip is not in the types
-      flip
+    <img
+      src="/playing-animation.gif"
+      alt="playing-animation"
+      style={sizeStyle}
       title="Thinking..."
     />
+    // <FontAwesomeIcon
+    //   icon={faHourglassStart}
+    //   size={size ?? "5x"}
+    //   // @ts-expect-error flip is not in the types
+    //   flip
+    //   title="Thinking..."
+    // />
   );
 };
 

@@ -17,6 +17,7 @@ const HandSigns = () => {
     const myRoundInfo = currentRound!.find((round) => {
       return round.player.id === myId;
     });
+
     if (!myRoundInfo) {
       return {
         amIPlaying: false,
@@ -39,7 +40,6 @@ const HandSigns = () => {
       data: sign,
     });
   };
-  console.log("myMove", myMove);
   if (!amIPlaying) {
     return null;
   }
@@ -50,7 +50,7 @@ const HandSigns = () => {
           <div className="overlay-content">The game is stopped</div>
         </div>
       )}
-      <h2>Choose your sign</h2>
+      <h2 className="hand-signs-text">Choose your sign</h2>
       <div className="hand-signs">
         <HandSign
           disabled={alreadyPlayed}

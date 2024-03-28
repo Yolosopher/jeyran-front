@@ -82,3 +82,11 @@ export interface IGamePopulated {
   inGamePlayers: string[];
   revealed: boolean;
 }
+
+export interface IHistoryRoundPayload {
+  winners: string[];
+  playerMoves: {
+    player: string;
+    move: MoveType;
+  }[];
+}

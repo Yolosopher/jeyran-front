@@ -12,7 +12,7 @@ const Round = ({ round }: RoundProps) => {
       winners: round.winners.map((winner) => winner.id),
       isTie: round.winners.length === 0,
     };
-  }, round.winners);
+  }, [round.winners]);
   return (
     <Scrollbar
       style={{

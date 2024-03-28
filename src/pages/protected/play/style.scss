@@ -1,3 +1,5 @@
+@import "../../../colors.scss";
+
 .play-main {
   position: relative;
   justify-content: space-between;
@@ -16,7 +18,7 @@
   }
   .current-game-span {
     color: var(--red);
-    user-select: text;
+    user-select: all;
   }
 }
 .main-container {
@@ -31,6 +33,15 @@
   overflow: auto;
   max-height: 200px;
 }
+
+.mid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .hand-signs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -44,9 +55,18 @@
     align-items: center;
     gap: 10px;
     position: relative;
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 12px;
     overflow: hidden;
+    background-color: var(--card-bg);
+    filter: drop-shadow(0px 0px 4px var(--red-shadow));
+  }
+  &-text {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--orange);
+    margin-bottom: 20px;
   }
   &-overlay {
     position: absolute;
@@ -103,7 +123,7 @@
   }
 }
 .end-button {
-  color: #fff;
+  color: var(--default-white);
   background-color: var(--darkred);
   &:hover {
     background-color: var(--darkred-hover);
@@ -157,6 +177,9 @@
   aspect-ratio: 1/1;
   padding: 20px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  background-color: var(--primary-bg);
+  // width: 66px;
+  // height: 66px;
   &.active {
     border: 1px solid var(--orange);
     // opacity: 0.7;
@@ -167,7 +190,10 @@
   &.loser {
     border: 1px solid var(--red);
   }
-  svg {
+  svg,
+  img {
+    // width: 100%;
+    // height: 100%;
     aspect-ratio: 1/1;
   }
   &:disabled {
@@ -213,4 +239,69 @@
     --game-content-width-left: 350px;
   }
 }
+
+.current-round-result {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  width: 90%;
+  height: max-content;
+  max-width: 500px;
+
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+
+  border-radius: 20px;
+
+  background-color: rgba($color: $card-bg, $alpha: 0.8);
+  box-shadow: 0px 0px 4px var(--red-shadow);
+  user-select: text;
+  .text {
+    font-size: 2.8rem;
+    user-select: none;
+    padding: 20px 40px;
+    color: var(--orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .hr {
+      border-radius: 20px;
+      background: var(--primary-bg);
+      width: 20px;
+      box-shadow: 0px 0px 4px var(--red-shadow);
+      height: 100%;
+    }
+    &.no-tie {
+      font-size: 1.2rem;
+      color: var(--default-white);
+      display: grid;
+      justify-content: unset;
+      grid-template-columns: 1fr auto 1fr;
+
+      align-items: flex-start;
+      gap: 20px;
+      // color: ;
+    }
+    .user {
+      user-select: all;
+      display: inline-flex;
+      align-items: center;
+
+      font-weight: bold;
+      font-size: 1.3rem;
+      &.loser {
+        color: var(--red);
+      }
+      &.winner {
+        color: var(--green);
+      }
+    }
+  }
+}
+
 @import url("./sidebars.scss");

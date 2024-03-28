@@ -3,13 +3,12 @@ import "./style.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import gameStore from "../../../store/gameStore";
 import useEmitter from "../../../hooks/useEmitter";
-import MovesOfOthers from "../../../components/play/moves/MovesOfOthers";
-import HandSigns from "../../../components/play/HandSigns";
 import { useEffect, useRef } from "react";
 import GameInfo from "../../../components/play/game-info/GameInfo";
 import Head from "./Head";
 import GameHistory from "../../../components/play/game-history/GameHistory";
 import GamePlayers from "../../../components/play/in-game-players/GamePlayers";
+import GameBox from "../../../components/play/gamebox/GameBox";
 
 const Play = () => {
   const gameContentRef = useRef<HTMLDivElement>(null);
@@ -48,8 +47,7 @@ const Play = () => {
             <GamePlayers rf={gameContentRef} />
             <div className="mid">
               <GameInfo />
-              <MovesOfOthers />
-              <HandSigns />
+              <GameBox />
             </div>
             <GameHistory rf={gameContentRef} />
           </div>
