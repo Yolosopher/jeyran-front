@@ -62,8 +62,8 @@ const None = ({ size }: IconParams) => {
       result.width = `${parsedValue}em`;
       result.height = `${parsedValue}em`;
     } else {
-      result.width = `5em`;
-      result.height = `5em`;
+      result.width = `5rem`;
+      result.height = `5rem`;
     }
     return result;
   }, [size]);

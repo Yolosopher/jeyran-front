@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Dialog from "../Dialog";
+import UserBox from "../avatar/UserBox";
 
 const ProfileDialog = () => {
   const username = selfStore((state) => state.info!.username);
@@ -12,12 +13,7 @@ const ProfileDialog = () => {
 
   return (
     <Dialog
-      trigger={
-        <div className="profile-box">
-          <UserAvatar username={username} />
-          <span>{username}</span>
-        </div>
-      }
+      trigger={<UserBox username={username} className="profile-box" />}
       content={
         <nav className="profile-nav">
           {/* <div className="profile-nav-item">

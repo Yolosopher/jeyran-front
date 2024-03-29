@@ -1,26 +1,25 @@
 .player {
-  padding: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
+  padding: 1.25rem;
+  border: 0.0625rem solid #e0e0e0;
+  border-radius: 0.75rem;
   width: 100%;
   .hr {
-    margin: 10px 0;
+    margin: 0.625rem 0;
     border: 0;
-    border-top: 1px solid #e0e0e08d;
+    border-top: 0.0625rem solid #e0e0e08d;
   }
-  &-user {
+  &-bottom {
     display: flex;
-    gap: 10px;
     align-items: center;
+    gap: 0.625rem;
     width: 100%;
   }
   &-name {
     font-weight: bold;
-    flex: 1;
   }
   &-status {
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
     align-items: center;
     &.ingame-status {
       transform-origin: center center;
@@ -28,24 +27,26 @@
       justify-content: center;
       align-items: center;
       border-radius: 50%;
-      width: 40px;
+      width: 2.5rem;
       background: #000;
-      height: 40px;
+      height: 2.5rem;
       svg {
-        width: 23px;
-        height: 23px;
+        width: 1.4375rem;
+        height: 1.4375rem;
         display: flex;
         justify-content: center;
         align-items: center;
       }
     }
     &.online-status {
+      //
     }
     &.active {
       color: var(--green);
     }
   }
   &-score {
+    flex: 1;
     text-align: right;
   }
 }

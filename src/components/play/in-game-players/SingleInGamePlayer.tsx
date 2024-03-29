@@ -3,6 +3,7 @@ import gameStore from "../../../store/gameStore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWifi } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import UserBox from "../../shared/avatar/UserBox";
 
 type SingleInGamePlayerProps = {
   id: string;
@@ -29,7 +30,11 @@ const SingleInGamePlayer = ({
   return (
     <div className="player">
       <div className="player-user">
-        <div className="player-name">@{username}</div>
+        {/* <div className="player-name">@{username}</div> */}
+        <UserBox username={username} />
+      </div>
+      <div className="hr"></div>
+      <div className="player-bottom">
         {/* is in this game */}
         {isInGame && (
           <div
@@ -51,9 +56,8 @@ const SingleInGamePlayer = ({
             <FontAwesomeIcon icon={faDiscord} size="1x" />
           </div>
         </div>
+        <div className="player-score">Score: {score}</div>
       </div>
-      <div className="hr"></div>
-      <div className="player-score">Score: {score}</div>
     </div>
   );
 };

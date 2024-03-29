@@ -7,7 +7,9 @@ const InGamePlayers = () => {
   const players = gameStore((state) => state.gameInfo!.players);
 
   return (
-    <Scrollbar style={{ width: 320, height: "calc(100dvh - 102px - 60px)" }}>
+    <Scrollbar
+      style={{ width: "20rem", height: "calc(100dvh - 7.375rem - 5rem)" }}
+    >
       <div className="gameplayers-list">
         {players.map((player) => (
           <SingleInGamePlayer

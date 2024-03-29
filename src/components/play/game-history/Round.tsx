@@ -16,8 +16,8 @@ const Round = ({ round }: RoundProps) => {
   return (
     <Scrollbar
       style={{
-        width: 260,
-        height: 116,
+        width: "16.25rem",
+        minHeight: "11rem",
       }}
     >
       <div className="round">
@@ -28,6 +28,8 @@ const Round = ({ round }: RoundProps) => {
             move,
             username: player.username,
             size: "2x",
+            userBoxVertical: true,
+            smallTextSize: true,
           };
           if (isTie) {
             data.active = true;

@@ -22,8 +22,8 @@
   }
 }
 .main-container {
-  min-height: calc(100dvh - 102px);
-  padding: 20px 40px;
+  height: calc(100dvh - 7.375rem);
+  padding: 1.25rem 2.5rem;
   display: flex;
   flex-direction: column;
 }
@@ -31,7 +31,7 @@
   text-align: left;
   font-size: 0.8rem;
   overflow: auto;
-  max-height: 200px;
+  max-height: 12.5rem;
 }
 
 .mid {
@@ -45,28 +45,29 @@
 .hand-signs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 50px;
+  grid-gap: 1.2rem;
 
   &-container {
+    margin: 0 2.8rem;
     display: flex;
     flex-direction: column;
 
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     position: relative;
-    padding: 20px 40px;
-    border-radius: 12px;
+    padding: 1.25rem 2.5rem;
+    border-radius: 0.75rem;
     overflow: hidden;
     background-color: var(--card-bg);
-    filter: drop-shadow(0px 0px 4px var(--red-shadow));
+    filter: drop-shadow(0rem 0rem 0.25rem var(--red-shadow));
   }
   &-text {
     font-size: 1.5rem;
     text-transform: uppercase;
     font-weight: bold;
     color: var(--orange);
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
   &-overlay {
     position: absolute;
@@ -83,20 +84,20 @@
     cursor: not-allowed;
     .overlay-content {
       font-size: 1.4rem;
-      padding: 20px;
+      padding: 1.25rem;
     }
   }
 }
 
 .play-btn {
-  padding: 10px;
-  border-radius: 12px;
+  padding: 0.625rem;
+  border-radius: 0.75rem;
   cursor: pointer;
   border: none;
   color: #3f3f3f;
   font-size: 1rem;
   font-weight: bold;
-  transition: all 0.3s;
+  transition: all 0.15s;
   background-color: var(--green);
   svg {
     aspect-ratio: 1/1;
@@ -107,12 +108,12 @@
 }
 
 .creator-menu {
-  top: 20px;
-  right: 20px;
+  top: 1.25rem;
+  right: 1.25rem;
 
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .leave-button {
@@ -129,31 +130,36 @@
     background-color: var(--darkred-hover);
   }
 }
-
+.round-player {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  align-items: center;
+  width: 100%;
+}
 .player-moves {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 
   .round-player-move {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     .player-sign {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid var(--orange);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      border: 0.0625rem solid var(--orange);
     }
   }
 }
 .round-username {
-  font-size: 0.8rem;
   text-align: center;
   font-weight: bold;
   &.winner {
@@ -173,22 +179,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   aspect-ratio: 1/1;
-  padding: 20px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  padding: 1.25rem;
+  box-shadow: 0rem 0rem 0.625rem 0rem rgba(0, 0, 0, 0.4);
   background-color: var(--primary-bg);
-  // width: 66px;
-  // height: 66px;
+  // width: 4.125rem;
+  // height: 4.125rem;
   &.active {
-    border: 1px solid var(--orange);
+    border: 0.0625rem solid var(--orange);
     // opacity: 0.7;
   }
   &.winner {
-    border: 1px solid var(--green);
+    border: 0.0625rem solid var(--green);
   }
   &.loser {
-    border: 1px solid var(--red);
+    border: 0.0625rem solid var(--red);
   }
   svg,
   img {
@@ -211,8 +217,8 @@
 }
 
 .game-content {
-  --game-content-width: 40px;
-  --game-content-width-left: 40px;
+  --game-content-width: 2.5rem;
+  --game-content-width-left: 2.5rem;
   flex: 1;
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -221,22 +227,14 @@
 
   .left,
   .right {
-    position: relative;
     z-index: 1;
     height: 100%;
-    transition: width 0.15s ease-in-out;
-  }
-  .right {
-    width: var(--game-content-width);
-  }
-  .left {
-    width: var(--game-content-width-left);
   }
   &.toggled-right {
-    --game-content-width: 350px;
+    --game-content-width: 21.875rem;
   }
   &.toggled-left {
-    --game-content-width-left: 350px;
+    --game-content-width-left: 21.875rem;
   }
 }
 
@@ -250,30 +248,31 @@
 
   width: 90%;
   height: max-content;
-  max-width: 500px;
+  min-height: 18.75rem;
+  max-width: 31.25rem;
 
   display: flex;
   justify-content: center;
   // align-items: center;
 
-  border-radius: 20px;
+  border-radius: 1.25rem;
 
   background-color: rgba($color: $card-bg, $alpha: 0.8);
-  box-shadow: 0px 0px 4px var(--red-shadow);
+  box-shadow: 0rem 0rem 0.25rem var(--red-shadow);
   user-select: text;
   .text {
     font-size: 2.8rem;
     user-select: none;
-    padding: 20px 40px;
+    padding: 1.25rem 2.5rem;
     color: var(--orange);
     display: flex;
     justify-content: center;
     align-items: center;
     .hr {
-      border-radius: 20px;
+      border-radius: 1.25rem;
       background: var(--primary-bg);
-      width: 20px;
-      box-shadow: 0px 0px 4px var(--red-shadow);
+      width: 1.25rem;
+      box-shadow: 0rem 0rem 0.25rem var(--red-shadow);
       height: 100%;
     }
     &.no-tie {
@@ -284,7 +283,7 @@
       grid-template-columns: 1fr auto 1fr;
 
       align-items: flex-start;
-      gap: 20px;
+      gap: 1.25rem;
       // color: ;
     }
     .user {

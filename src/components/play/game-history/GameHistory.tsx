@@ -8,10 +8,7 @@ type GameHistoryProps = {
 };
 
 const GameHistory = ({ rf }: GameHistoryProps) => {
-  const matchmedia = useMemo(
-    () => window.matchMedia("(min-width: 1200px)"),
-    []
-  );
+  const matchmedia = useMemo(() => window.matchMedia("(min-width: 1025)"), []);
   const [toggled, setToggled] = useState<boolean>(matchmedia.matches);
   const [hovered, setHovered] = useState<boolean>(false);
 

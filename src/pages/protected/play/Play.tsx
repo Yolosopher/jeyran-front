@@ -39,7 +39,7 @@ const Play = () => {
       <div
         className="main-container"
         style={{
-          padding: "20px 0",
+          padding: "1.25rem 0",
         }}
       >
         <main className="play-main">

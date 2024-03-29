@@ -1,19 +1,24 @@
 .game-history,
 .gameplayers-box {
-  --from-edge-length: 30px;
-  --btn-width: 55px;
-  --padding: 15px;
+  --from-edge-length: 1.875rem;
+  --btn-width: 3.4375rem;
+  --padding: 0.9375rem;
   height: 100%;
   display: flex;
   padding: var(--padding);
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
   position: relative;
-  border-radius: 20px 0 0 20px;
   background: var(--card-bg);
-  filter: drop-shadow(0 0 4px var(--red-shadow));
+  filter: drop-shadow(0 0 0.25rem var(--red-shadow));
   transition: all 0.15s ease-in-out;
   overflow: visible;
+
+  @media screen and (max-width: 1300px) {
+    position: fixed !important;
+
+    height: calc(100dvh - 7.375rem - 2.5rem);
+  }
   .toggler-btn,
   .history {
     flex-shrink: 0;
@@ -27,7 +32,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.15s;
     position: absolute;
     z-index: 3;
 
@@ -46,9 +51,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-left: 8px;
+      padding-left: 0.5rem;
       transition: clip-path 0.15s ease-in-out;
-      filter: drop-shadow(0 0 4px var(--red-shadow));
+      filter: drop-shadow(0 0 0.25rem var(--red-shadow));
     }
   }
   .history {
@@ -70,29 +75,29 @@
   }
   .history-list,
   .gameplayers-list {
-    padding: 0 30px;
+    padding: 0 1.875rem;
     width: 100%;
 
     display: flex;
     flex-direction: column;
     height: 100%;
 
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   &.hovered {
-    filter: drop-shadow(0 0 10px var(--red-shadow));
+    filter: drop-shadow(0 0 0.625rem var(--red-shadow));
     .toggler-btn {
       color: var(--red);
     }
   }
   &.toggled {
     .toggler-btn {
-      filter: drop-shadow(0 0 8px var(--red));
+      filter: drop-shadow(0 0 0.5rem var(--red));
       .shadow {
-        border-radius: 6px 0 0 6px;
+        border-radius: 0.375rem 0 0 0.375rem;
         padding-left: 0;
-        padding-right: 8px;
+        padding-right: 0.5rem;
         clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
       }
     }
@@ -102,8 +107,19 @@
     }
   }
 }
-
+.game-history {
+  border-radius: 1.25rem 0 0 1.25rem;
+  @media screen and (max-width: 1300px) {
+    left: unset !important;
+    right: 0 !important;
+  }
+}
 .gameplayers-box {
+  border-radius: 0 1.25rem 1.25rem 0;
+  @media screen and (max-width: 1300px) {
+    right: unset !important;
+    left: 0 !important;
+  }
   .toggler-btn {
     right: unset;
 
@@ -121,24 +137,24 @@
       .shadow {
         clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
 
-        padding-left: 8px;
-        padding-right: 0; // padding-right: 8px;
+        padding-left: 0.5rem;
+        padding-right: 0; // padding-right: .5rem;
       }
     }
   }
 }
 .round {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 5px;
+  padding: 0.3125rem;
   flex-shrink: 0;
   &-gap {
     flex-shrink: 0;
-    width: 5px;
+    width: 0.3125rem;
     display: flex;
-    height: 10px;
+    height: 0.625rem;
   }
 }

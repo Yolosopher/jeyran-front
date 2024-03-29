@@ -5,24 +5,24 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 10px;
+  gap: 0.625rem;
   font-size: 1.2rem;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
   input {
     font-size: 1rem;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid var(--red);
+    padding: 0.625rem;
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid var(--red);
   }
   button {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid var(--red);
+    padding: 0.625rem;
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid var(--red);
     background-color: var(--red);
     color: var(--default-white);
     cursor: pointer;

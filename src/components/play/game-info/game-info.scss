@@ -1,10 +1,10 @@
 .game-info {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.3125rem;
   align-items: center;
   .play-btn {
-    margin-top: 10px;
+    margin-top: 0.625rem;
     width: max-content;
   }
 }

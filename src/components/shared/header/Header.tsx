@@ -5,10 +5,10 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <h1 className="logo">Rock Paper Scissors</h1>
-        <nav className="menu">
+        <h1 className="logo">Jeiran - Rock Paper Scissors</h1>
+        <div className="menu">
           <ProfileDialog />
-        </nav>
+        </div>
       </div>
     </header>
   );

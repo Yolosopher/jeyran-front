@@ -6,14 +6,14 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 20px;
+  gap: 1.25rem;
   font-size: 1.2rem;
 
   .create-room-btn {
     cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #00f;
+    padding: 0.625rem;
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid #00f;
     background-color: #00f;
     color: var(--default-white);
     cursor: pointer;
