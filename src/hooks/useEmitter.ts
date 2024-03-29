@@ -24,7 +24,7 @@ type EmitPayload = {
 
 const useEmitter = () => {
   const { socket } = socketStore();
-  const { info, updateInfo } = selfStore();
+  const { info } = selfStore();
   const { handleRefreshToken, handleLogout } = useAuth();
   const { setCurrentGameId } = gameStore();
   const [retryQue, setRetryQue] = useState<EmitParams[]>([]);

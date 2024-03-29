@@ -17,7 +17,6 @@ type DataParams = {
 
 const PlayerMove = ({
   data: {
-    id,
     move,
     username,
     size,

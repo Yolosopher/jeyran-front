@@ -7,7 +7,7 @@ const MovesOfOthers = () => {
   const { info } = selfStore();
   const { gameInfo } = gameStore();
   const movesOfOthers = useMemo(() => {
-    return gameInfo!.currentRound!.filter(({ move, player }) => {
+    return gameInfo!.currentRound!.filter(({ player }) => {
       return player.id !== info!.id;
     });
   }, [gameInfo!.currentRound, info!.id]);

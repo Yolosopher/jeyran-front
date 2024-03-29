@@ -11,12 +11,10 @@ import socketStore from "./store/socketStore";
 import useInitSocket from "./hooks/useInitSocket";
 import { useEffect } from "react";
 import useEmitter from "./hooks/useEmitter";
-import useAuth from "./hooks/useAuth";
 import LeaveGame from "./pages/protected/leave-game/LeaveGame";
 function App() {
   useInitSocket();
   const { info } = socketStore();
-  const { handleRefreshToken } = useAuth();
   const { emitter } = useEmitter();
 
   const handlePing = () => {

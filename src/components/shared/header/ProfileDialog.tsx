@@ -1,9 +1,7 @@
-import UserAvatar from "../avatar/UserAvatar";
 import selfStore from "../../../store/selfStore";
 import useAuth from "../../../hooks/useAuth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import Dialog from "../Dialog";
 import UserBox from "../avatar/UserBox";
 

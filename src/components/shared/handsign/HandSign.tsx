@@ -6,7 +6,6 @@ import {
   faHand,
   faHandFist,
   faHandScissors,
-  faHourglassStart,
 } from "@fortawesome/free-solid-svg-icons";
 import { useMemo } from "react";
 import { SizeProp } from "@fortawesome/fontawesome-svg-core";

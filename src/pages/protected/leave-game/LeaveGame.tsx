@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import useEmitter from "../../../hooks/useEmitter";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import gameStore from "../../../store/gameStore";
 
 const LeaveGame = () => {
