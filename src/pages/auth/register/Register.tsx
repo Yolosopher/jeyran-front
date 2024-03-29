@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import request from "../../../request";
 import Head from "./Head";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -19,7 +20,9 @@ const Register = () => {
       });
       if (result.success) {
         toast("Account created successfully!", { icon: "🚀" });
-        console.log(result.data);
+
+        // Redirect to login page
+        navigate(`/auth/login?username=${username}`);
       } else {
         throw new Error(result.error);
       }

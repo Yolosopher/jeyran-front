@@ -6,7 +6,6 @@ type HeadProps = {
 };
 
 const Head = memo(({ roomCode }: HeadProps) => {
-  console.log("rendering playpage head");
   return (
     <Helmet>
       <title>Jeyran - {roomCode} | Play Rock Paper Scissors with Friends</title>

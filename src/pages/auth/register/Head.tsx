@@ -2,7 +2,6 @@ import { memo } from "react";
 import { Helmet } from "react-helmet";
 
 const Head = memo(() => {
-  console.log("rendering registerpage head");
   return (
     <Helmet>
       <title>

@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Head from "./Head";
 
 const Login = () => {
+  const [searchParams] = useSearchParams();
+  const usernameParam = searchParams.get("username");
+
   const { handleLogin } = useAuth();
-  const [username, setUsername] = useState<string>("");
+  const [username, setUsername] = useState<string>(usernameParam ?? "");
   const [password, setPassword] = useState<string>("");
 
   const submitHandler = async (event: React.FormEvent) => {

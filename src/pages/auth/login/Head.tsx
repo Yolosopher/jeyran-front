@@ -2,7 +2,6 @@ import { memo } from "react";
 import { Helmet } from "react-helmet";
 
 const Head = memo(() => {
-  console.log("rendering loginpage head");
   return (
     <Helmet>
       <title>Jeyran | Log in to Play Rock Paper Scissors Online</title>
