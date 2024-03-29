@@ -22,6 +22,7 @@ const MovesOfOthers = () => {
               id: player.id,
               move,
               username: player.username,
+              colorIfPlayed: true,
             }}
           />
         );

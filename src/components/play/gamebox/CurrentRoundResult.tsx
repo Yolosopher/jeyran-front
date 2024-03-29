@@ -13,8 +13,6 @@ const WinnersLosersText = ({
   winners: string[];
   losers: string[];
 }) => {
-  console.log("winners", winners);
-  console.log("losers", losers);
   const multipleWinners = winners.length > 1;
   const multipleLosers = losers.length > 1;
 

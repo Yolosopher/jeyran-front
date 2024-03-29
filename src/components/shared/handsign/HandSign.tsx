@@ -19,6 +19,7 @@ type HandSignParams = {
   size?: SizeProp;
   winner?: boolean;
   loser?: boolean;
+  colorIfPlayed?: boolean;
 };
 
 export type ActionParams = {
@@ -91,6 +92,7 @@ const HandSign = ({
   size,
   winner,
   loser,
+  colorIfPlayed,
 }: HandSignParams) => {
   const Sign = () => {
     switch (sign) {
@@ -121,6 +123,8 @@ const HandSign = ({
       type="button"
       className={`sign${active ? " active" : ""}${winner ? " winner" : ""}${
         loser ? " loser" : ""
+      }${
+        colorIfPlayed && !["none", "hidden"].includes(sign) ? " shown-play" : ""
       }`}
       {...(handleAction && { onClick: handleAction })}
       title={capitalized}

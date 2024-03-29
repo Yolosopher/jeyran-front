@@ -186,6 +186,9 @@
   background-color: var(--primary-bg);
   // width: 4.125rem;
   // height: 4.125rem;
+  &.shown-play {
+    border: 0.0625rem solid var(--orange);
+  }
   &.active {
     border: 0.0625rem solid var(--orange);
     // opacity: 0.7;
@@ -241,7 +244,7 @@
 .current-round-result {
   position: fixed;
   z-index: 10;
-  top: 50%;
+  top: 28%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -257,7 +260,7 @@
 
   border-radius: 1.25rem;
 
-  background-color: rgba($color: $card-bg, $alpha: 0.8);
+  background-color: rgba($color: $card-bg, $alpha: 0.99);
   box-shadow: 0rem 0rem 0.25rem var(--red-shadow);
   user-select: text;
   .text {

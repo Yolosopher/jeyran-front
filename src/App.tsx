@@ -12,6 +12,7 @@ import useInitSocket from "./hooks/useInitSocket";
 import { useEffect } from "react";
 import useEmitter from "./hooks/useEmitter";
 import LeaveGame from "./pages/protected/leave-game/LeaveGame";
+// import "@fontsource-variable/inter";
 function App() {
   useInitSocket();
   const { info } = socketStore();

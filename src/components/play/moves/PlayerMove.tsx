@@ -13,6 +13,7 @@ type DataParams = {
   loser?: boolean;
   active?: boolean;
   userBoxVertical?: boolean;
+  colorIfPlayed?: boolean;
 };
 
 const PlayerMove = ({
@@ -25,12 +26,17 @@ const PlayerMove = ({
     loser,
     active,
     userBoxVertical,
+    colorIfPlayed,
   },
 }: {
   data: DataParams;
 }) => {
   return (
-    <div className="round-player">
+    <div
+      className={`round-player${
+        !["none", "hidden"].includes(move) ? " played" : ""
+      }`}
+    >
       <UserBox
         vertical={userBoxVertical}
         username={username}
@@ -45,6 +51,7 @@ const PlayerMove = ({
           active={active}
           winner={winner}
           loser={loser}
+          colorIfPlayed={colorIfPlayed}
         />
       </div>
     </div>
