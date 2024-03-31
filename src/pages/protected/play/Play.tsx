@@ -30,6 +30,17 @@ const Play = () => {
     }
   }, [checked]);
 
+  useEffect(() => {
+    if (checked) {
+      if (!currentGameId) {
+        if (id) {
+          console.log("this happens.");
+          navigate(`/`);
+        }
+      }
+    }
+  }, [currentGameId]);
+
   if (!gameInfo) {
     return null;
   }

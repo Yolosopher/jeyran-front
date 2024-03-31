@@ -14,7 +14,7 @@ const UserBox = ({ username, className, vertical }: UserBoxProps) => {
       }`}
     >
       <UserAvatar username={username} />
-      <span>{username}</span>
+      <span title={username}>{username}</span>
     </div>
   );
 };

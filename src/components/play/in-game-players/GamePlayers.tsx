@@ -8,7 +8,7 @@ type GamePlayersProps = {
 };
 const GamePlayers = ({ rf }: GamePlayersProps) => {
   const matchmedia = useMemo(
-    () => window.matchMedia("(min-width: 1025px)"),
+    () => window.matchMedia("(min-width: 1300px)"),
     []
   );
   const [toggled, setToggled] = useState<boolean>(matchmedia.matches);

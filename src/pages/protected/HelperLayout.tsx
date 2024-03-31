@@ -4,6 +4,7 @@ import useListener from "../../hooks/useListener";
 import { useEffect } from "react";
 import gameStore from "../../store/gameStore";
 import { IGamePopulated } from "../../server-types";
+import toast from "react-hot-toast";
 
 const HelperLayout = () => {
   const {
@@ -29,10 +30,6 @@ const HelperLayout = () => {
 
   const currentGameIdHandler = (gameId: string) => {
     console.log("gameId", gameId);
-    // toast("Game id received", {
-    //   icon: "🎮",
-    //   position: "top-right",
-    // });
     setCurrentGameId(gameId);
     if (!checked) {
       markChecked();
@@ -42,6 +39,10 @@ const HelperLayout = () => {
   const onlinePlayersHandler = (players: string[] | null) => {
     console.log("onlinePlayers", players);
     setOnlinePlayers(players ?? []);
+  };
+
+  const handleGetBanned = (gameId: string) => {
+    toast(`You are banned from this game ${gameId}`);
   };
 
   useEffect(() => {
@@ -55,11 +56,12 @@ const HelperLayout = () => {
     addListener("game-online-players", onlinePlayersHandler);
     addListener("current-game", currentGameIdHandler);
     addListener("game-info", gameInfoHandler);
+    addListener("get-banned", handleGetBanned);
 
     return () => {
       removeListener("game-online-players", onlinePlayersHandler);
       removeListener("current-game", currentGameIdHandler);
-      removeListener("game-info", gameInfoHandler);
+      removeListener("get-banned", handleGetBanned);
     };
   }, []);
 

@@ -23,3 +23,25 @@
     }
   }
 }
+
+.badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  aspect-ratio: 33/40;
+  padding: 0.125rem 0.3125rem;
+  transform: translate(-40%, -40%) rotate(45deg);
+  border-radius: 0.75rem;
+  width: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white-light);
+  color: var(--primary-bg);
+  box-shadow: 0 0 0.25rem 0 var(--default-white);
+  &.banned {
+    background-color: var(--red);
+    box-shadow: 0 0 0.25rem 0 var(--default-white);
+    color: var(--white-light);
+  }
+}

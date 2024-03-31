@@ -4,6 +4,7 @@ import selfStore from "../store/selfStore";
 import toast from "react-hot-toast";
 import socketStore from "../store/socketStore";
 import gameStore from "../store/gameStore";
+import { useNavigate } from "react-router-dom";
 
 type EmitParams = {
   event: string;
@@ -23,6 +24,7 @@ type EmitPayload = {
 };
 
 const useEmitter = () => {
+  const navigate = useNavigate();
   const { socket } = socketStore();
   const { info } = selfStore();
   const { handleRefreshToken, handleLogout } = useAuth();
@@ -54,6 +56,10 @@ const useEmitter = () => {
             } else if (response.message === "Not authorized") {
               toast(response.message ?? "Unknown error occurred");
               handleLogout(false);
+            } else if (response.message === "reason:ban") {
+              // handle ban
+              toast("You are banned from this game");
+              navigate("/");
             } else if (response.message === "Your Current Game not found") {
               setCurrentGameId(null);
             } else {

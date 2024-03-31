@@ -4,7 +4,7 @@ import gameStore from "../../../store/gameStore";
 import GetGameState from "./GetGameState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import CreatorMenu from "../CreatorMenu";
+import CreatorMenu from "../creator-menu/CreatorMenu";
 import selfStore from "../../../store/selfStore";
 import { useMemo } from "react";
 

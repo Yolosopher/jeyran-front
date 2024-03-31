@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPause, faPlay, faPowerOff } from "@fortawesome/free-solid-svg-icons";
-import useEmitter from "../../hooks/useEmitter";
-import gameStore from "../../store/gameStore";
-import { GameState } from "../../server-types";
+import useEmitter from "../../../hooks/useEmitter";
+import gameStore from "../../../store/gameStore";
+import { GameState } from "../../../server-types";
+import Blacklist from "./Blacklist";
 
 type CreatorMenuProps = {
   children?: React.ReactNode;
@@ -49,7 +50,7 @@ const CreatorMenu = ({ children }: CreatorMenuProps) => {
           <FontAwesomeIcon icon={faPlay} size="2x" />
         </button>
       )}
-
+      <Blacklist />
       {[GameState.IN_PROGRESS, GameState.STOPPED].includes(gameState) && (
         <button
           type="button"

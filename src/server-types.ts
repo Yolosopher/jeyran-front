@@ -61,6 +61,7 @@ export interface IGame {
   }[];
   historyRounds: RoundType[];
   inGamePlayers: string[];
+  blacklist: string[] | IUser[];
   revealed: boolean;
 }
 
@@ -80,6 +81,7 @@ export interface IGamePopulated {
   }[];
   historyRounds: RoundPopulatedType[];
   inGamePlayers: string[];
+  blacklist: UserPopulatedType[];
   revealed: boolean;
 }
 
