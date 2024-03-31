@@ -33,7 +33,7 @@ const gameStore = create<StoreType>((set) => ({
   },
   checked: false,
   markChecked: () => set({ checked: true }),
-  gameInfo: null,
+  gameInfo: defValue(),
   setGameInfo: (gameInfo: IGamePopulated) => {
     // localStorage.setItem("gameInfo", JSON.stringify(gameInfo));
     set({ gameInfo });
