@@ -32,16 +32,16 @@ type IconParams = {
   size?: SizeProp;
 };
 
-const Paper = ({ size }: IconParams) => {
+export const Paper = ({ size }: IconParams) => {
   return <FontAwesomeIcon size={size ?? "5x"} icon={faHand} />;
 };
-const Rock = ({ size }: IconParams) => {
+export const Rock = ({ size }: IconParams) => {
   return <FontAwesomeIcon size={size ?? "5x"} icon={faHandFist} />;
 };
-const Scissors = ({ size }: IconParams) => {
+export const Scissors = ({ size }: IconParams) => {
   return <FontAwesomeIcon size={size ?? "5x"} icon={faHandScissors} />;
 };
-const Hidden = ({ size }: IconParams) => {
+export const Hidden = ({ size }: IconParams) => {
   return (
     <FontAwesomeIcon
       size={size ?? "5x"}
@@ -50,7 +50,7 @@ const Hidden = ({ size }: IconParams) => {
     />
   );
 };
-const None = ({ size }: IconParams) => {
+export const None = ({ size }: IconParams) => {
   const sizeStyle = useMemo(() => {
     const result = {
       width: "0",
