@@ -124,28 +124,28 @@ const CurrentRoundResult = () => {
   };
 
   const roundResult = useMemo(() => {
-    return {
-      isTie: false,
-      winners: ["Nika", "Temurie", "123123"],
-      losers: [
-        "Temurie",
-        "123123",
-        "222222",
-        "Temurie",
-        "123123",
-        "222222",
-        "333333",
-        "Temurie",
-        "123123",
-        "222222",
-        "Temurie",
-        "123123",
-        "222222",
-        "333333",
-      ],
-      winnerSign: "rock",
-      loserSign: "scissors",
-    };
+    // return {
+    //   isTie: false,
+    //   winners: ["Nika", "Temurie", "123123"],
+    //   losers: [
+    //     "Temurie",
+    //     "123123",
+    //     "222222",
+    //     "Temurie",
+    //     "123123",
+    //     "222222",
+    //     "333333",
+    //     "Temurie",
+    //     "123123",
+    //     "222222",
+    //     "Temurie",
+    //     "123123",
+    //     "222222",
+    //     "333333",
+    //   ],
+    //   winnerSign: "rock",
+    //   loserSign: "scissors",
+    // };
     if (!roundInfo) return null;
 
     const { winners } = roundInfo!;
@@ -204,7 +204,7 @@ const CurrentRoundResult = () => {
   // when round is hidden or none, reset round info
   useEffect(() => {
     if (currentRound.some(({ move }) => ["none", "hidden"].includes(move))) {
-      // setRoundInfo(null);
+      setRoundInfo(null);
     }
   }, [currentRound]);
 
