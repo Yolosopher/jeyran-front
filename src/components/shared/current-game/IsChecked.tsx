@@ -4,9 +4,8 @@ import "./style.scss";
 const IsChecked = () => {
   const { checked } = gameStore();
 
-  return null;
-  //  (
-  //   <div className="current-game-id">checked: {checked ? "true" : "false"}</div>
-  // );
+  return (
+    <div className="current-game-id">checked: {checked ? "true" : "false"}</div>
+  );
 };
 export default IsChecked;
